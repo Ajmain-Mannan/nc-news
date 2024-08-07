@@ -1,0 +1,231 @@
+/* Articles list */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.articles-list {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.articles-list h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.articles-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.articles-list li {
+    margin-bottom: 20px;
+}
+
+.articles-list li:last-child {
+    margin-bottom: 0;
+}
+
+p {
+    text-align: center;
+    color: #666666;
+}
+
+/* ArticleCard */
+.article-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fafafa;
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.article-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.article-card-header {
+    display: flex;
+    align-items: center;
+}
+
+.article-card-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.article-card-title {
+    margin: 0;
+    color: #333333;
+    font-size: 1.2em;
+}
+
+.article-card-title a {
+    text-decoration: none;
+    color: #0056b3;
+    transition: color 0.3s ease;
+}
+
+.article-card-title a:hover {
+    color: #003d80;
+}
+
+.article-card-body {
+    padding: 10px 20px;
+}
+
+.article-card-topic {
+    font-weight: bold;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+.article-card-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #666666;
+}
+
+.article-card-review {
+    display: flex;
+    justify-content: space-between;
+    color: #666666;
+}
+
+/* ArticlePage */
+.article-detail {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.article-detail h2 {
+    margin-bottom: 20px;
+    color: #333333;
+    text-align: center;
+}
+
+.article-detail img.article-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 20px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+}
+
+.article-detail .article-topic {
+    text-align: center;
+    font-weight: bold;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.article-detail p {
+    color: #444444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.article-detail .article-meta {
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+.article-detail .article-meta p {
+    margin: 0;
+    color: #999999;
+}
+
+.article-detail .article-content {
+    margin-top: 20px;
+    color: #333333;
+}
+
+.article-detail .article-review {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    margin-top: 20px;
+    align-self: center;
+}
+
+.article-detail .article-review span {
+    color: #666666;
+}
+
+
+@media (max-width: 768px) {
+    .articles-list, .article-detail {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .article-card {
+        padding: 15px;
+    }
+
+    .article-detail h2 {
+        font-size: 1.5em;
+    }
+
+    .article-detail img.article-image {
+        max-width: 100%;
+    }
+
+    .article-review {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .article-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .article-card-image {
+        width: 100%;
+        max-width: 100px;
+        margin: 0;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .article-card-title {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .article-card-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .article-card-review {
+        justify-content: space-around;
+        width: 100%;
+    }
+}

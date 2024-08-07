@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import ArticleCard from "./ArticleCard";
+import { getArticles } from "../api";
 
 const Articles = () => {
     const [articles, setArticles] = useState([])
@@ -8,10 +9,9 @@ const Articles = () => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        axios
-        .get("https://be-nc-news-pvkk.onrender.com/api/articles")
-        .then((response) => {
-            setArticles(response.data.articles)
+        getArticles()
+      .then((articles) => {
+        setArticles(articles);
             setIsLoading(false)
         }).catch((err) => {
             setError(err.message)
@@ -22,6 +22,7 @@ const Articles = () => {
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
     return (
+        <div className="container">
         <div className="articles-list">
             <h2>Articles</h2>
             <ul>
@@ -31,6 +32,7 @@ const Articles = () => {
                 </li>            
             })}
             </ul>
+        </div>
         </div>
     )
 
