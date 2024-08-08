@@ -30,3 +30,19 @@ export const getCommentsById = article_id => {
             return response.data.comments
         })
 }
+
+export const postComment = (article_id, username, body) => {
+    return api.post(`/articles/${article_id}/comments`, { username, body })
+        .then((response) => response.data.comment)
+        .catch((error) => {
+            throw error
+        });
+};
+
+export const getUsers = () => {
+    return api.get("/users")
+        .then((response) => response.data.users)
+        .catch((error) => {
+            throw error
+        });
+};
