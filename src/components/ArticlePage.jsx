@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import { getArticleById } from "../api"
+import Comments from "./Comments"
 
 const ArticlePage = () => {
     const { article_id } = useParams()
@@ -50,8 +51,8 @@ return (
             </div>
             <div className="article-review">
                 <span>{votes} votes</span>
-                <span>comments</span>
         </div>
+        <Comments article_id={article_id} />
     </div>
 )
 
