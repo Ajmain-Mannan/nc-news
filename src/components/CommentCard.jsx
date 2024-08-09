@@ -1,13 +1,18 @@
 import React from "react";
 
-const CommentCard = ({ comment }) => {
+const CommentCard = ({ comment, username, onDelete }) => {
 
     const {
+        comment_id,
         body,
         votes,
         author,
-        created_at
+        created_at,
     } = comment
+
+    const handleDelete = () => {
+        onDelete(comment_id)
+    }
 
 
     const date = new Date(created_at).toLocaleString()
@@ -19,6 +24,7 @@ const CommentCard = ({ comment }) => {
                 <span className="comment-author">By {author}</span>
                 <span className="comment-date">{date}</span>
                 <span className="comment-votes">{votes} votes</span>
+                {author === username && (<button onClick={handleDelete} className="delete-comment-button">Delete Comment</button>)}
             </div>
         </div>
     );
