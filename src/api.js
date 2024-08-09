@@ -6,9 +6,7 @@ const api = axios.create({
 
 export const getArticles = () => {
     return api.get("/articles")
-        .then((response) => {
-            return response.data.articles
-        })
+        .then((response) =>  response.data.articles)
         .catch((error) => {
             throw error
         })
@@ -16,9 +14,7 @@ export const getArticles = () => {
 
 export const getArticleById = (article_id) => {
     return api.get(`/articles/${article_id}`)
-        .then((response) => {
-            return response.data.article
-        })
+        .then((response) => response.data.article)
         .catch((error) => {
             throw error
         })
@@ -26,9 +22,7 @@ export const getArticleById = (article_id) => {
 
 export const getCommentsById = article_id => {
     return api.get(`/articles/${article_id}/comments`)
-        .then(response => {
-            return response.data.comments
-        })
+        .then(response => response.data.comments)
 }
 
 export const postComment = (article_id, username, body) => {
@@ -49,8 +43,16 @@ export const getUsers = () => {
 
 export const deleteComment = (comment_id) => {
     return api.delete(`/comments/${comment_id}`)
-      .then((response) => response.data)
-      .catch((error) => {
-        throw error;
-      });
-  };
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+};
+
+export const getTopics = () => {
+    return api.get("/topics")
+        .then((response) => response.data.topics)
+        .catch((error) => {
+            throw error
+        });
+};
