@@ -229,6 +229,30 @@ p {
     margin-right: 0; 
 }
 
+.delete-comment-button {
+    background-color: transparent;
+    color: #e74c3c;
+    border: 2px solid #e74c3c;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.delete-comment-button:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-comment-button:disabled {
+    background-color: transparent;
+    color: #aaa;
+    border-color: #aaa;
+    cursor: not-allowed;
+}
+
 /* ArticlePage */
 .article-detail {
     width: 90%;
@@ -300,79 +324,62 @@ p {
     color: #666666;
 }
 
-
+/* Media Queries */
 @media (max-width: 768px) {
-    .articles-list, .article-detail {
+    .article-detail, .comment-form, .comments-section {
         width: 95%;
         padding: 10px;
     }
 
-    .article-card {
-        padding: 15px;
-    }
-
-    .article-detail h2 {
-        font-size: 1.5em;
-    }
-
-    .article-detail img.article-image {
-        max-width: 100%;
-    }
-
-    .article-review {
+    .article-meta, .article-review, .user-login-container {
         width: 100%;
-        justify-content: space-around;
-    }
-
-    .article-card-header {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .article-card-image {
-        width: 100%;
-        max-width: 100px;
-        margin: 0;
-        border-radius: 8px 8px 0 0;
-    }
-
-    .article-card-title {
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .article-card-meta {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .article-card-review {
-        justify-content: space-around;
-        width: 100%;
-    }
-
-    .comments-section ul {
-        padding: 0;
-    }
-
-    .comments-section li {
+    .article-meta p, .article-review span, .user-login-label {
         margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .article-topic {
+        font-size: 1.1em;
+        margin-bottom: 15px;
     }
 
     .comment-card {
         padding: 10px;
     }
 
-    .comment-card .comment-author {
-        font-size: 1em;
+    .comment-meta {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .comment-card .comment-body {
+    .comment-meta span, .delete-comment-button {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .delete-comment-button {
+        padding: 8px;
+        font-size: 0.8em;
+        text-align: center;
+        border-width: 1px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .comment-body {
         font-size: 0.9em;
     }
 
-    .comment-card .comment-date {
-        font-size: 0.7em;
+    .comment-author, .comment-date, .comment-votes {
+        font-size: 0.8em;
     }
 }
 

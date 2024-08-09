@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import axios from "axios"
 import { getArticleById, getUsers } from "../api"
 import Comments from "./Comments"
 import CommentForm from "./CommentForm"
@@ -12,6 +11,7 @@ const ArticlePage = () => {
     const [error, setError] = useState(null)
     const [users, setUsers] = useState([])
     const [loggedInUser, setLoggedInUser] = useState("")
+    const [comments, setComments] = useState("")
 
     useEffect(() => {
         getArticleById(article_id)
@@ -37,6 +37,7 @@ const ArticlePage = () => {
     }, []);
 
     const handleNewComment = (comment) => {
+        setComments((comments) => [comment, ...comments]);
         setArticle((article) => ({
             ...article,
             comment_count: article.comment_count + 1
@@ -86,7 +87,7 @@ const ArticlePage = () => {
                 </select>
             </div>
             <CommentForm article_id={article_id} username={loggedInUser} onNewComment={handleNewComment} />
-            <Comments article_id={article_id} />
+            <Comments article_id={article_id} comments={comments} setComments={setComments} username={loggedInUser} />
         </div>
     );
 };

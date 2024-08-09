@@ -46,3 +46,11 @@ export const getUsers = () => {
             throw error
         });
 };
+
+export const deleteComment = (comment_id) => {
+    return api.delete(`/comments/${comment_id}`)
+      .then((response) => response.data)
+      .catch((error) => {
+        throw error;
+      });
+  };
